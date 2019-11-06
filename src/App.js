@@ -6,6 +6,10 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      location: []
+    }
   }
 
   componentDidMount() {
@@ -15,7 +19,12 @@ class App extends React.Component {
   getLocation() {
     fetchLocation()
       .then(data => {
-        console.log(data)
+        let result = data.split("(");
+        result = result[1];
+        result = result.replace(";"," ");
+        result = result.replace(")", " ");
+
+        console.log(result)
 
       })
   }
