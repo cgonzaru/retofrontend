@@ -19,12 +19,16 @@ class App extends React.Component {
   getLocation() {
     fetchLocation()
       .then(data => {
+        //limpiamos el texto que resulta de la petición
         let result = data.split("(");
         result = result[1];
         result = result.replace(";"," ");
         result = result.replace(")", " ");
-
-        console.log(result)
+        result = JSON.parse(result);
+        //nos iteresan ciertos datos que los recogeremos del estado
+        this.setState({
+          location: result.features
+        });
 
       })
   }
