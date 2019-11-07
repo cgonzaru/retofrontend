@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchLocation } from './services/fetchLocation';
+import MapInfo from './components/MapInfo';
 import './App.css';
 
 
@@ -37,11 +38,18 @@ class App extends React.Component {
     return (
       <div className="app">
         <header className="app__header">
-          :D
+          <h1 className="header__title">Mapa</h1>
         </header>
-        <main className="app__main">
 
+        <main className="app__main">
+          <MapInfo 
+            location={this.state.location}
+          />
         </main>
+
+        <footer className="app__footer">
+          Cristina González Rubio &copy; 2019
+        </footer>
       </div>
     );
   }
